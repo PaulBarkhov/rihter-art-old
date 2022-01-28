@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
-import { Dimensions, StyleSheet, Text, TextInput, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
+import React from 'react'
+import { Dimensions, StyleSheet, Text, TextInput, View, Button, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
+import AuthContext from '../context/AuthContext'
 
 const Login = ({ navigation, route }) => {
-    const [errorMessage, setErrorMessage] = useState('')
-    const [userData, setUserData] = useState({
+    const [errorMessage, setErrorMessage] = React.useState('')
+    const [userData, setUserData] = React.useState({
         email: '',
         password: ''
     })
+
+    const context = React.useContext(AuthContext)
 
     const login = async () => {
         if (!userData.email) {
@@ -28,13 +31,13 @@ const Login = ({ navigation, route }) => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.isAuthenticated) {
-                        console.log('Logged in')
+                        context.setIsAuthentificated(true);
                     } else {
                         setErrorMessage(data.error)
                     }
                 });
         } catch (error) {
-            console.log("Error", error);
+            console.log("Ошибка", error);
         }
     };
 
@@ -45,12 +48,12 @@ const Login = ({ navigation, route }) => {
                 {errorMessage ? <Text>{errorMessage}</Text> : null}
                 <TextInput
                     style={styles.input}
-                    placeholder='Электронная почта'
+                    placeholder='Email'
                     onChangeText={text => setUserData({ ...userData, email: text })}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Пароль'
+                    placeholder='Password'
                     onChangeText={text => setUserData({ ...userData, password: text })}
                 />
                 <TouchableOpacity onPress={login} style={styles.button}><Text style={styles.text}>Login</Text></TouchableOpacity>

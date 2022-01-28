@@ -8,15 +8,15 @@ import {
     Dimensions,
     KeyboardAvoidingView
 } from "react-native";
+import AuthContext from "../context/AuthContext";
 
 const Registration = ({ navigation }) => {
     const [userData, setUserData] = useState({
         email: "",
         password: ""
     });
-
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
-    const [errorMessage, setErrorMessage] = useState('')
+    const [errorMessage, setErrorMessage] = React.useState('')
 
     const register = async () => {
         if (!userData.email) {
