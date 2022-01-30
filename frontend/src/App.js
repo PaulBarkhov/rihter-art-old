@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button } from 'reactstrap'
+import './App.css'
+import HomePage from './components/HomePage'
+import Account from './components/Account'
+import Registration from './components/Registration'
+import Login from './components/Login'
+import { BrowserRouter as Router, Routes, Route, Link, Redirect } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/registration' element={<Registration />} />
+        <Route path='/home' element={<HomePage />} />
+        <Route path='/account' element={<Account />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App;
+export default App

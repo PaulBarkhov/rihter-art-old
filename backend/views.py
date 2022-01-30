@@ -55,6 +55,8 @@ def login_view(request):
             print("Failure")
             return JsonResponse({"isAuthenticated": False, "error": "Неверный Email или Пароль"})
 
+    return render(request, 'index.html')
+
 
 def logout_view(request):
     logout(request)
