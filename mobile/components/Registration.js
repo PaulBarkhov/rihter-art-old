@@ -36,7 +36,7 @@ const Registration = ({ navigation }) => {
             return
         }
         try {
-            await fetch("http://192.168.2.114:8000/registration", {
+            await fetch("http://rihter-art.ru/registration", {
                 method: "POST",
                 headers: {
                     "Content-Type": "applications/json",

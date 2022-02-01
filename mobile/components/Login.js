@@ -21,7 +21,7 @@ const Login = ({ navigation, route }) => {
             return
         }
         try {
-            await fetch("http://192.168.2.114:8000/login", {
+            await fetch("http://rihter-art.ru/login", {
                 method: "POST",
                 header: {
                     "Content-Type": "applications/json",

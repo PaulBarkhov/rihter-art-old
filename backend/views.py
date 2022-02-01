@@ -38,6 +38,7 @@ def registration_view(request):
         except Exception as e:
             print(str(e))
             return JsonResponse({"isRegistered": False, "error": str(e)})
+    return render(request, 'index.html')
 
 
 @csrf_exempt

@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import AuthContext from "./context/AuthContext";
 
 export default function App() {
-  const [isAuthenticated, setIsAuthentificated] = useState(true);
+  const [isAuthenticated, setIsAuthentificated] = useState(false);
 
   return (
     <AuthContext.Provider value={{ setIsAuthentificated }}>

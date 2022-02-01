@@ -6,7 +6,7 @@ const Account = () => {
   const context = React.useContext(AuthContext)
   const logout = async () => {
     try {
-      await fetch("http://192.168.2.114:8000/logout")
+      await fetch("http://rihter-art.ru/logout")
         .then((res) => res.json())
         .then((data) => {
           if (data.isLoggedOut) {
