@@ -14,9 +14,9 @@ from pathlib import Path
 import os
 
 # uncomment for deploy
-# import json
-# with open('/etc/rihter-art-config.json') as config_file:
-#     config = json.load(config_file)
+import json
+with open('/etc/rihter-art-config.json') as config_file:
+    config = json.load(config_file)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,19 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # uncomment for deploy
-# SECRET_KEY = config['SERCRET_KEY']
-
-# delete for deploy
-SECRET_KEY = "django-insecure-oss5!ysg)_w!q6-_p3#h+1bp8ch7$xkzo#)#0p1^j&^o%^^12f"
+SECRET_KEY = config['SERCRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # comment or delete to deploy
-ALLOWED_HOSTS = ['192.168.2.114']
-
-# uncomment to deploy
-# ALLOWED_HOSTS = ['45.141.76.71', 'rihter-art.ru']
+ALLOWED_HOSTS = ['45.141.76.71', 'www.rihter-art.ru', 'rihter-art.ru']
 
 # Application definition
 
